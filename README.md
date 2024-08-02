@@ -150,7 +150,7 @@
     }
 
     function showSorry() {
-        document.getElementById('response').innerHTML = "<h1>Sorry, we don't have your status.</h1><a href='#' onclick='goBack()'>Go Back</a>";
+        document.getElementById('response').innerHTML = "<h1>Sorry, we don't have a description for you.</h1><a href='#' onclick='goBack()'>Go Back</a>";
     }
 
     function goBack() {
