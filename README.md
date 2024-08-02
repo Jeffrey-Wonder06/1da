@@ -140,7 +140,7 @@
         }
     });
 
-    function Description(fullName) {
+    function showDescription(fullName) {
         var description = descriptions[fullName];
         if (description) {
             document.getElementById('response').innerHTML = "<h1>Description</h1><p>" + description + "</p><a href='#' onclick='goBack()'>Main Page</a>";
