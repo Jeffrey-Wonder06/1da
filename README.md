@@ -130,8 +130,8 @@
         var formattedName = fullName.split(" ").map(word => word.charAt(0).toUpperCase() + 
         word.slice(1).toLowerCase()).join(" ");
 
-        var nickname = nicknames[fullName];
-        var status = statuses[fullName];
+        var nickname = nicknames[formattedName];
+        var status = statuses[formattedName];
 
         if (nickname) {
             var response = "How are you today? Do you want to view your status as the set2k24 of Total Child Secondary School?";
