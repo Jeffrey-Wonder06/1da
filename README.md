@@ -17,8 +17,8 @@
     </form>
 
     <div id="response"></div>
-<script>
-    var descriptions = {
+    <script>
+     var descriptions = {
       "Abolude Testimony":
     "A bright light in our classroom, Abito embodied a serene spirit, radiant heart, and curious soul. With a deep connection to the world's wonders, they inspired us to explore, dream, and grow. Their presence was a blessing, leaving an indelible mark on our lives and hearts."
     , "Adewuyi Marvellous":
@@ -56,10 +56,7 @@
     ,    "Usman Jeffrey":
         "He has a relaxed and effortless charm, moving through life with a gentle ease that makes him a joy to be around. But beneath his laid-back exterior lies a sharp and agile mind, capable of tackling complex ideas and solving intricate problems with ease. His intelligence is subtle, yet unmistakable. He's the perfect blend of book smarts and street smarts, with a quick wit and a warm heart."
 };
-</script>
 
-<!-- Nicknames dictionary -->
-<script>    
   var nicknames = {
 "Abolude Testimony": "Pastor",
 "Adewuyi Marvellous": "Marvy",
@@ -79,8 +76,8 @@
 "Omotola Iretomiwa": "Tomzy Alex",
 "Owolabi Praise": "Praise",
 "Usman Jeffrey": "Wonder"
-# Add more mappings here...
-};
+   };
+   
  document.getElementById('details-form').addEventListener('submit', function(event) {
             event.preventDefault();
             var name = document.getElementById('name').value;
