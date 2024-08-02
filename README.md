@@ -76,7 +76,7 @@
 
     <script>
     var statuses = {
-        "Abolude Testimony": "A bright light in our classroom, Abito embodied a serene spirit, radiant heart, and curious soul. With a deep connection to the world's wonders, they inspired us to explore, dream, and grow. Their presence was a blessing, leaving an indelible mark on our lives and hearts.",
+        "Abolude Testimony": "A bright light in the class, he's embodied a serene spirit, radiant heart, and a curious soul and mind. With a deep connection to the world's wonders, they inspired us to explore, dream, and grow. Their presence was a blessing, leaving an indelible mark on our lives and hearts.",
         "Adewuyi Marvellous": "A calm and intelligent girl, with a gentle spirit and a sweet smile. She had a soft presence that put others at ease, and a quiet confidence that inspired respect. Her thoughtful nature and curious mind made her a joy to be around.",
         "Adeyanju Enoch": "A calm and curious boy, with a gentle soul and a thirst for knowledge. He had a quiet confidence and patient nature, reminiscent of a wildlife observer, able to sit still and observe the world around him with wonder and curiosity.",
         "Ajayi Emmanuel": "A boy with a strong and lean physique, honed from years of active play and sports. His athletic build and agile movements spoke to his love of physical activity, and his coordination and balance hinted at a natural talent for competition. With a quiet confidence and calm demeanor, he moved with a sense of purpose and poise, always ready to take on the next challenge.",
