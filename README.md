@@ -133,9 +133,9 @@
         var nickname = nicknames[formattedName];
         var status = statuses[formattedName];
 
-        if (nickname) {
+        if (nickname && status) {
             var response = "How are you today? Do you want to view your status as the set2k24 of Total Child Secondary School?";
-            response += "<br><a href='#' onclick='showStatus(\"" + formattedName + "\")'>Yes</a>";
+            response += "<br><a href='#' onclick='showStatus(\"" + formattedName +"\", \"" + nickname +  "\")'>Yes</a>";
             response += "<br><a href='#' onclick='showSorry()'>No</a>";
             document.getElementById('response').innerHTML = response;
         } else {
@@ -143,10 +143,10 @@
         }
     });
 
-    function showStatus(fullName) {
+    function showStatus(fullName, nickname) {
         var status = statuses[fullName];
         if (status) {
-            document.getElementById('response').innerHTML = "<h1>Status</h1><p>" + status + "</p><a href='#' onclick='goBack()'>Main Page</a>";
+            document.getElementById('response').innerHTML = "<h1>Status</h1><p><strong>Nickname:</strong> " + nickname + "</p><p><strong>Status:</strong> " + status + "</p><a href='#' onclick='goBack()'>Main Page</a>";
         } else {
             showSorry();
         }
