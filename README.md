@@ -41,8 +41,8 @@
             background-color: #555;
         }
         #response {
-            font-size: 1.2em;
-            margin-top: 20px;
+            font-size: 1.5em;
+            margin-top: 30px;
         }
         a {
             color: #ff6f61;
@@ -52,8 +52,8 @@
             text-decoration: underline;
         }
         .designer {
-            margin-top: 20px;
-            font-size: 1em;
+            margin-top: 30px;
+            font-size: 2em;
             color: #666;
         }
     </style>
