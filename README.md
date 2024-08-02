@@ -4,16 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #ff6f61, #dce35b);
+            color: #333;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        form {
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            font-size: 1.2em;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        #response {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        a {
+            color: #ff6f61;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .designer {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <h1>Enter your details</h1>
+    <h1>Welcome to Total Child Secondary School</h1>
+    <p>Only the 2024 set of Total Child Secondary School can input their names.</p>
+    
     <form id="details-form">
-        <label for="full-name">Enter your full name:</label>
+        <label for="full-name">Enter your full name:</label><br>
         <input type="text" id="full-name" name="full-name" required><br>
         <button type="submit">Submit</button>
     </form>
 
     <div id="response"></div>
+
+    <div class="designer">
+        Designed by <strong>WONDER</strong>
+    </div>
+
     <script>
     var descriptions = {
         "Abolude Testimony": "A bright light in our classroom, Abito embodied a serene spirit, radiant heart, and curious soul. With a deep connection to the world's wonders, they inspired us to explore, dream, and grow. Their presence was a blessing, leaving an indelible mark on our lives and hearts.",
@@ -56,22 +116,22 @@
         "Owolabi Praise": "Praise",
         "Usman Jeffrey": "Wonder"
     };
-   
+
     document.getElementById('details-form').addEventListener('submit', function(event) {
         event.preventDefault();
         var fullName = document.getElementById('full-name').value.trim();
-        
+
         // Input validation
         if (fullName === "") {
-            alert("Please enter your full name");
+            alert("Please enter your full name (For example: surname_firstname)");
             return;
         }
-        
+
         var nickname = nicknames[fullName];
         var description = descriptions[fullName];
-        
+
         if (nickname) {
-            var response = "Hey " + nickname + ", how are you today? , "Do you wanna see what I have for you?";
+            var response = "How are you today? Do you want to view your status as a student of Total Child Secondary School?";
             response += "<br><a href='#' onclick='showDescription(\"" + fullName + "\")'>Yes</a>";
             response += "<br><a href='#' onclick='showSorry()'>No</a>";
             document.getElementById('response').innerHTML = response;
@@ -90,7 +150,7 @@
     }
 
     function showSorry() {
-        document.getElementById('response').innerHTML = "<h1>Sorry, we don't have anything for you.</h1><a href='#' onclick='goBack()'>Go Back</a>";
+        document.getElementById('response').innerHTML = "<h1>Sorry, we don't have a description for you.</h1><a href='#' onclick='goBack()'>Go Back</a>";
     }
 
     function goBack() {
