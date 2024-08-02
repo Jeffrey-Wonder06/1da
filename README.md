@@ -88,7 +88,7 @@
                 return;
             }
             
-            var fullName = name + " " + surname;
+            var fullName = name + "" + surname;
             var nickname = nicknames[name];
             var description = descriptions[fullName];
             
