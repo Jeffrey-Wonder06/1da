@@ -126,13 +126,16 @@
             alert("Please enter your full name (For example: surname_firstname)");
             return;
         }
+        
+        var formattedName = fullName.split(" ").map(word => word.charAt(0).toUpperCase() + 
+        word.slice(1).toLowerCase()).join(" ");
 
         var nickname = nicknames[fullName];
         var status = statuses[fullName];
 
         if (nickname) {
             var response = "How are you today? Do you want to view your status as the set2k24 of Total Child Secondary School?";
-            response += "<br><a href='#' onclick='showStatus(\"" + fullName + "\")'>Yes</a>";
+            response += "<br><a href='#' onclick='showStatus(\"" + formattedName + "\")'>Yes</a>";
             response += "<br><a href='#' onclick='showSorry()'>No</a>";
             document.getElementById('response').innerHTML = response;
         } else {
