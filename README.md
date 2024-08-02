@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +55,7 @@
     ,    "Usman Jeffrey":
         "He has a relaxed and effortless charm, moving through life with a gentle ease that makes him a joy to be around. But beneath his laid-back exterior lies a sharp and agile mind, capable of tackling complex ideas and solving intricate problems with ease. His intelligence is subtle, yet unmistakable. He's the perfect blend of book smarts and street smarts, with a quick wit and a warm heart."
 };
-
+<script>
   var nicknames = {
 "Abolude Testimony": "Pastor",
 "Adewuyi Marvellous": "Marvy",
@@ -80,12 +79,24 @@
    
  document.getElementById('details-form').addEventListener('submit', function(event) {
             event.preventDefault();
-            var name = document.getElementById('name').value;
-            var surname = document.getElementById('surname').value;
-            var fullName = name + surname;
+            var name = document.getElementById('name').value.trim();
+            var surname = document.getElementById('surname').value.trim();
+            
+            // Input validation
+            if (name === "" || surname === "") {
+                alert("Please fill in both name and surname");
+                return;
+            }
+            
+            var fullName = name + " " + surname;
             var nickname = nicknames[name];
             var description = descriptions[fullName];
-
+            
+            // Sanitize input to prevent XSS attacks
+            name = encodeURIComponent(name);
+            surname = encodeURIComponent(surname);
+            fullName = encodeURIComponent(fullName);
+            
             if (nickname) {
                 var response = "Hey " + nickname + ", how are you today?";
                 response += "<br><a href='#' onclick='showDescription(\"" + fullName + "\")'>Yes</a>";
@@ -95,7 +106,6 @@
                 showSorry();
             }
         });
-
         function showDescription(fullName) {
             var description = descriptions[fullName];
             if (description) {
@@ -104,11 +114,9 @@
                 showSorry();
             }
         }
-
         function showSorry() {
             document.getElementById('response').innerHTML = "<h1>Sorry, we don't have a description for you.</h1><a href='#' onclick='goBack()'>Go Back</a>";
         }
-
         function goBack() {
             document.getElementById('response').innerHTML = "";
             document.getElementById('name').value = "";
@@ -118,10 +126,6 @@
 </body>
 </html>
 
-    
-
-    
-    
 
    
      
