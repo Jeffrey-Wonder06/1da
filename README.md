@@ -8,10 +8,8 @@
 <body>
     <h1>Enter your details</h1>
     <form id="details-form">
-        <label for="name">Enter your name:</label>
-        <input type="text" id="name" name="name" required><br>
-        <label for="surname">Enter your surname:</label>
-        <input type="text" id="surname" name="surname" required><br>
+        <label for="full-name">Enter your full name:</label>
+        <input type="text" id="full-name" name="full-name" required><br>
         <button type="submit">Submit</button>
     </form>
 
@@ -61,19 +59,15 @@
    
     document.getElementById('details-form').addEventListener('submit', function(event) {
         event.preventDefault();
-        var name = document.getElementById('name').value.trim();
-        var surname = document.getElementById('surname').value.trim();
+        var fullName = document.getElementById('full-name').value.trim();
         
         // Input validation
-        if (name === "" || surname === "") {
-            alert("Please fill in both name and surname");
+        if (fullName === "") {
+            alert("Please enter your full name");
             return;
         }
         
-        var fullName = name + " " + surname; // Add a space between name and surname
-        console.log("Full Name:", fullName); // Debugging output
-        
-        var nickname = nicknames[name];
+        var nickname = nicknames[fullName];
         var description = descriptions[fullName];
         
         if (nickname) {
@@ -87,8 +81,6 @@
     });
 
     function showDescription(fullName) {
-        console.log("Show Description for Full Name:", fullName); // Debugging output
-        
         var description = descriptions[fullName];
         if (description) {
             document.getElementById('response').innerHTML = "<h1>Description</h1><p>" + description + "</p><a href='#' onclick='goBack()'>Main Page</a>";
@@ -103,11 +95,8 @@
 
     function goBack() {
         document.getElementById('response').innerHTML = "";
-        document.getElementById('name').value = "";
-        document.getElementById('surname').value = "";
+        document.getElementById('full-name').value = "";
     }
     </script>
 </body>
 </html>
-
-  
