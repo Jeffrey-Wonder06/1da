@@ -71,7 +71,7 @@
         var description = descriptions[fullName];
         
         if (nickname) {
-            var response = "Hey " + nickname + ", how are you today?";
+            var response = "Hey " + nickname + ", how are you today? , "Do you wanna see what I have for you?";
             response += "<br><a href='#' onclick='showDescription(\"" + fullName + "\")'>Yes</a>";
             response += "<br><a href='#' onclick='showSorry()'>No</a>";
             document.getElementById('response').innerHTML = response;
@@ -90,7 +90,7 @@
     }
 
     function showSorry() {
-        document.getElementById('response').innerHTML = "<h1>Sorry, we don't have a description for you.</h1><a href='#' onclick='goBack()'>Go Back</a>";
+        document.getElementById('response').innerHTML = "<h1>Sorry, we don't have anything for you.</h1><a href='#' onclick='goBack()'>Go Back</a>";
     }
 
     function goBack() {
