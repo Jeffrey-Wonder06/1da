@@ -6,8 +6,8 @@
     <title>Main Page</title>
     <style>
         body {
-            background: linear-gradient(45deg, #ff6f61, #dce35b);
-            color: #333;
+            background: linear-gradient(45deg, #1e90ff, #dce35b);
+            color: #fff;
             font-family: Times New Roman, serif;
             text-align: center;
             padding: 20px;
