@@ -71,6 +71,8 @@
         }
         
         var fullName = name + " " + surname; // Add a space between name and surname
+        console.log("Full Name:", fullName); // Debugging output
+        
         var nickname = nicknames[name];
         var description = descriptions[fullName];
         
@@ -85,6 +87,8 @@
     });
 
     function showDescription(fullName) {
+        console.log("Show Description for Full Name:", fullName); // Debugging output
+        
         var description = descriptions[fullName];
         if (description) {
             document.getElementById('response').innerHTML = "<h1>Description</h1><p>" + description + "</p><a href='#' onclick='goBack()'>Main Page</a>";
@@ -106,3 +110,4 @@
 </body>
 </html>
 
+  
