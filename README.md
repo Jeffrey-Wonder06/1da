@@ -45,16 +45,29 @@
             margin-top: 30px;
         }
         a {
-            color: #ff6f61;
+            color: #ffeb3b;
             text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
         }
         .designer {
-            margin-top: 30px;
-            font-size: 2em;
-            color: #666;
+            margin-top: 20px;
+            font-size: 1em;
+            color: #ddd;
+          }
+        .thick-button {
+            font-size: 1.5em; /* Increase font size */
+            padding: 15px 30px; /* Increase padding */
+            border: 3px solid #fff; /* Make border thicker and white */
+            background-color: #333;
+            color: #fff;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 10px;
+        }
+        .thick-button:hover {
+            background-color: #555;
         }
     </style>
 </head>
