@@ -29,9 +29,9 @@
             border-radius: 5px;
         }
         button {
-            font-size: 1.2em;
-            padding: 10px 20px;
-            background-color: #333;
+            font-size: 1.5em;
+            padding: 15px 30px;
+            background-color: 3px solid #333;
             color: #fff;
             border: none;
             border-radius: 5px;
