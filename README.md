@@ -6,7 +6,7 @@
     <title>Main Page</title>
     <style>
         body {
-            background: linear-gradient(45deg, #1e90ff, #dce35b);
+            background-color: #1e90ff;
             color: #fff;
             font-family: Times New Roman, serif;
             text-align: center;
@@ -29,7 +29,7 @@
             border-radius: 5px;
         }
         button {
-            font-size: 1.5em;
+            font-size: 1.3em;
             padding: 15px 30px;
             background-color: 3px solid #333;
             color: #fff;
@@ -41,7 +41,7 @@
             background-color: #555;
         }
         #response {
-            font-size: 1.5em;
+            font-size: 1.3em;
             margin-top: 30px;
         }
         a {
