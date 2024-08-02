@@ -1,9 +1,25 @@
-!pip install flask
-from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(__name__)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+</head>
+<body>
+    <h1>Enter your details</h1>
+    <form id="details-form">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="surname">Enter your surname:</label>
+        <input type="text" id="surname" name="surname" required><br>
+        <button type="submit">Submit</button>
+    </form>
 
-descriptions = {"Abolude Testimony":
+    <div id="response"></div>
+<script>
+    var descriptions = {
+      "Abolude Testimony":
     "A bright light in our classroom, Abito embodied a serene spirit, radiant heart, and curious soul. With a deep connection to the world's wonders, they inspired us to explore, dream, and grow. Their presence was a blessing, leaving an indelible mark on our lives and hearts."
     , "Adewuyi Marvellous":
         "Marvy was a calm and intelligent girl, with a gentle spirit and a sweet smile. She had a soft presence that put others at ease, and a quiet confidence that inspired respect. Her thoughtful nature and curious mind made her a joy to be around."
@@ -39,9 +55,12 @@ descriptions = {"Abolude Testimony":
         "He stands tall, with a commanding presence that's hard to ignore. He exudes a calm and gentle demeanor, moving with a relaxed ease that puts those around him at ease. His easy-going nature makes him approachable and likable, but don't let that fool you - beneath his laid-back exterior lies a fiercely ambitious drive, constantly pushing him to strive for excellence and reach new heights."
     ,    "Usman Jeffrey":
         "He has a relaxed and effortless charm, moving through life with a gentle ease that makes him a joy to be around. But beneath his laid-back exterior lies a sharp and agile mind, capable of tackling complex ideas and solving intricate problems with ease. His intelligence is subtle, yet unmistakable. He's the perfect blend of book smarts and street smarts, with a quick wit and a warm heart."
-}
+};
+</script>
 
-nicknames = {
+<!-- Nicknames dictionary -->
+<script>    
+  var nicknames = {
 "Abolude Testimony": "Pastor",
 "Adewuyi Marvellous": "Marvy",
 "Adeyanju Enoch": "Obobs",
@@ -61,99 +80,55 @@ nicknames = {
 "Owolabi Praise": "Praise",
 "Usman Jeffrey": "Wonder"
 # Add more mappings here...
-}
-@app.route('/')
-def main_page():
-    return '''
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Main Page</title>
-    </head>
-    <body>
-        <h1>Enter your details</h1>
-        <form action="/get_name" method="post">
-            <label for="name">Enter your name:</label>
-            <input type="text" id="name" name="name" required><br>
-            <label for="surname">Enter your surname:</label>
-            <input type="text" id="surname" name="surname" required><br>
-            <button type="submit">Submit</button>
-        </form>
-    </body>
-    </html>
-    '''
+};
+ document.getElementById('details-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var surname = document.getElementById('surname').value;
+            var fullName = name + " " + surname;
+            var nickname = nicknames[name];
+            var description = descriptions[fullName];
 
-@app.route('/get_name', methods=['POST'])
-def get_name():
-    name = request.form.get('name')
-    surname = request.form.get('surname')
-    full_name = f"{name} {surname}"
-    nickname = nicknames.get(name)
+            if (nickname) {
+                var response = "Hey " + nickname + ", how are you today?";
+                response += "<br><a href='#' onclick='showDescription(\"" + fullName + "\")'>Yes</a>";
+                response += "<br><a href='#' onclick='showSorry()'>No</a>";
+                document.getElementById('response').innerHTML = response;
+            } else {
+                showSorry();
+            }
+        });
 
-    if nickname:
-        return f'''
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Ask User</title>
-        </head>
-        <body>
-            <h1>Hey {nickname}, how are you today?</h1>
-            <a href="/show_description?name={name}&surname={surname}">Yes</a>
-            <a href="/show_fuck_off">No</a>
-        </body>
-        </html>
-        '''
-    else:
-        return redirect('/show_fuck_off')
+        function showDescription(fullName) {
+            var description = descriptions[fullName];
+            if (description) {
+                document.getElementById('response').innerHTML = "<h1>Description</h1><p>" + description + "</p><a href='#' onclick='goBack()'>Main Page</a>";
+            } else {
+                showSorry();
+            }
+        }
 
-@app.route('/show_description')
-def show_description():
-    name = request.args.get('name')
-    surname = request.args.get('surname')
-    full_name = f"{name} {surname}"
+        function showSorry() {
+            document.getElementById('response').innerHTML = "<h1>Sorry, we don't have a description for you.</h1><a href='#' onclick='goBack()'>Go Back</a>";
+        }
 
-    if full_name in descriptions:
-        description = descriptions[full_name]
-        return f'''
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Description</title>
-        </head>
-        <body>
-            <h1>Description</h1>
-            <p>{description}</p>
-            <a href="/">Main Page</a>
-        </body>
-        </html>
-        '''
-    else:
-        return redirect('/show_fuck_off')
+        function goBack() {
+            document.getElementById('response').innerHTML = "";
+            document.getElementById('name').value = "";
+            document.getElementById('surname').value = "";
+        }
+    </script>
+</body>
+</html>
 
-@app.route('/show_fuck_off')
-def show_fuck_off():
-    return '''
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sorry</title>
-    </head>
-    <body>
-        <h1>Sorry, we don't have a description for you.</h1>
-        <a href="/">Go Back</a>
-    </body>
-    </html>
-    '''
+    
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+    
+    
 
+   
+     
+        
+       
+
+   
