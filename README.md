@@ -82,7 +82,7 @@
             event.preventDefault();
             var name = document.getElementById('name').value;
             var surname = document.getElementById('surname').value;
-            var fullName = name + " " + surname;
+            var fullName = name + surname;
             var nickname = nicknames[name];
             var description = descriptions[fullName];
 
