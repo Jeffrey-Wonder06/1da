@@ -75,7 +75,7 @@
     </div>
 
     <script>
-    var descriptions = {
+    var statuses = {
         "Abolude Testimony": "A bright light in our classroom, Abito embodied a serene spirit, radiant heart, and curious soul. With a deep connection to the world's wonders, they inspired us to explore, dream, and grow. Their presence was a blessing, leaving an indelible mark on our lives and hearts.",
         "Adewuyi Marvellous": "A calm and intelligent girl, with a gentle spirit and a sweet smile. She had a soft presence that put others at ease, and a quiet confidence that inspired respect. Her thoughtful nature and curious mind made her a joy to be around.",
         "Adeyanju Enoch": "A calm and curious boy, with a gentle soul and a thirst for knowledge. He had a quiet confidence and patient nature, reminiscent of a wildlife observer, able to sit still and observe the world around him with wonder and curiosity.",
@@ -128,11 +128,11 @@
         }
 
         var nickname = nicknames[fullName];
-        var description = descriptions[fullName];
+        var status = statuses[fullName];
 
         if (nickname) {
             var response = "How are you today? Do you want to view your status as the set2k24 of Total Child Secondary School?";
-            response += "<br><a href='#' onclick='showDescription(\"" + fullName + "\")'>Yes</a>";
+            response += "<br><a href='#' onclick='showStatus(\"" + fullName + "\")'>Yes</a>";
             response += "<br><a href='#' onclick='showSorry()'>No</a>";
             document.getElementById('response').innerHTML = response;
         } else {
@@ -140,17 +140,17 @@
         }
     });
 
-    function showDescription(fullName) {
-        var description = descriptions[fullName];
-        if (description) {
-            document.getElementById('response').innerHTML = "<h1>Description</h1><p>" + description + "</p><a href='#' onclick='goBack()'>Main Page</a>";
+    function showStatus(fullName) {
+        var status = statuses[fullName];
+        if (status) {
+            document.getElementById('response').innerHTML = "<h1>Status</h1><p>" + status + "</p><a href='#' onclick='goBack()'>Main Page</a>";
         } else {
             showSorry();
         }
     }
 
     function showSorry() {
-        document.getElementById('response').innerHTML = "<h1>Sorry, we don't have a description for you.</h1><a href='#' onclick='goBack()'>Go Back</a>";
+        document.getElementById('response').innerHTML = "<h1>Sorry, we don't have a status for you.</h1><a href='#' onclick='goBack()'>Go Back</a>";
     }
 
     function goBack() {
