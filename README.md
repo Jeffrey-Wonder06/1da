@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +21,7 @@
         form {
             margin: 20px 0;
         }
-        input[type="text"] {
+        input[type="text"], input[type="password"] {
             font-size: 1.2em;
             padding: 10px;
             margin: 10px 0;
@@ -30,7 +31,7 @@
         button {
             font-size: 1.3em;
             padding: 15px 30px;
-            background-color: 3px solid #333;
+            background-color: #333;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -54,7 +55,7 @@
             margin-top: 20px;
             font-size: 1em;
             color: #ddd;
-          }
+        }
         .thick-button {
             font-size: 1.5em; /* Increase font size */
             padding: 15px 30px; /* Increase padding */
@@ -77,11 +78,11 @@
     <form id="details-form">
         <label for="full-name">Please enter your full name (for example: surname_firstname):</label><br>
         <input type="text" id="full-name" name="full-name" required><br>
+        <label for="password">Please enter your password:</label><br>
+        <input type="password" id="password" name="password" required><br>
         <button type="submit">Submit</button>
     </form>
-
     <div id="response"></div>
-
     <div class="designer">
         Designed by <strong>WONDER</strong>
     </div>
@@ -107,7 +108,7 @@
         "Owolabi Praise": "He stands tall, with a commanding presence that's hard to ignore. He exudes a calm and gentle demeanor, moving with a relaxed ease that puts those around him at ease. His easy-going nature makes him approachable and likable, but don't let that fool you - beneath his laid-back exterior lies a fiercely ambitious drive, constantly pushing him to strive for excellence and reach new heights.",
         "Usman Jeffrey": "He has a relaxed and effortless charm, moving through life with a gentle ease that makes him a joy to be around. But beneath his laid-back exterior lies a sharp and agile mind, capable of tackling complex ideas and solving intricate problems with ease. His intelligence is subtle, yet unmistakable. He's the perfect blend of book smarts and street smarts, with a quick wit and a warm heart."
     };
-
+    
     var nicknames = {
         "Abolude Testimony": "Pastor",
         "Adewuyi Marvellous": "Marvy",
@@ -128,24 +129,45 @@
         "Owolabi Praise": "P-money",
         "Usman Jeffrey": "Wonder"
     };
+    
+    var passwords = {
+        "Abolude Testimony": "password1",
+        "Adewuyi Marvellous": "password2",
+        "Adeyanju Enoch": "password3",
+        "Ajayi Emmanuel": "password4",
+        "Alabi Adedamola": "password5",
+        "Ayanda Joseph": "password6",
+        "Ayenuberun Peace": "password7",
+        "Ayinde Emmanuel": "password8",
+        "Babawale Elijah": "password9",
+        "Babawale Elizabeth": "password10",
+        "Bello Israel": "password11",
+        "Bello Olaseni": "password12",
+        "Fatile Taye": "password13",
+        "Mepaiyeda Boluwatife": "password14",
+        "Oladotun Esther": "password15",
+        "Omotola Iretomiwa": "password16",
+        "Owolabi Praise": "password17",
+        "Usman Jeffrey": "password18"
+    };
 
     document.getElementById('details-form').addEventListener('submit', function(event) {
         event.preventDefault();
         var fullName = document.getElementById('full-name').value.trim();
+        var password = document.getElementById('password').value.trim();
 
         // Input validation
-        if (fullName === "") {
-            alert("Please enter your full name (For example: surname_firstname)");
+        if (fullName === "" || password === "") {
+            alert("Please enter your full name and password.");
             return;
         }
-        
-        var formattedName = fullName.split(" ").map(word => word.charAt(0).toUpperCase() + 
-        word.slice(1).toLowerCase()).join(" ");
 
+        var formattedName = fullName.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" ");
         var nickname = nicknames[formattedName];
         var status = statuses[formattedName];
+        var correctPassword = passwords[formattedName];
 
-        if (nickname && status) {
+        if (nickname && status && password === correctPassword) {
             var response = "How are you today? Do you want to view your status as the set2k24 of Total Child Secondary School?";
             response += "<br><a href='#' onclick='showStatus(\"" + formattedName +"\", \"" + nickname +  "\")'>Yes</a>";
             response += "<br><a href='#' onclick='showSorry()'>No</a>";
@@ -171,7 +193,9 @@
     function goBack() {
         document.getElementById('response').innerHTML = "";
         document.getElementById('full-name').value = "";
+        document.getElementById('password').value = "";
     }
     </script>
 </body>
 </html>
+
