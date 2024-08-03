@@ -131,24 +131,24 @@
     };
     
     var passwords = {
-        "Abolude Testimony": "password1",
-        "Adewuyi Marvellous": "password2",
-        "Adeyanju Enoch": "password3",
-        "Ajayi Emmanuel": "password4",
-        "Alabi Adedamola": "password5",
-        "Ayanda Joseph": "password6",
-        "Ayenuberun Peace": "password7",
-        "Ayinde Emmanuel": "password8",
-        "Babawale Elijah": "password9",
-        "Babawale Elizabeth": "password10",
-        "Bello Israel": "password11",
-        "Bello Olaseni": "password12",
-        "Fatile Taye": "password13",
-        "Mepaiyeda Boluwatife": "password14",
-        "Oladotun Esther": "password15",
-        "Omotola Iretomiwa": "password16",
-        "Owolabi Praise": "password17",
-        "Usman Jeffrey": "password18"
+        "Abolude Testimony": "chinaza#1",
+        "Adewuyi Marvellous": "gmama#2",
+        "Adeyanju Enoch": "fabinho#3",
+        "Ajayi Emmanuel": "crown#4",
+        "Alabi Adedamola": "best#5",
+        "Ayanda Joseph": "toffy#6",
+        "Ayenuberun Peace": "bluebird#7",
+        "Ayinde Emmanuel": "herbs#8",
+        "Babawale Elijah": "esther#9",
+        "Babawale Elizabeth": "damzy#10",
+        "Bello Israel": "timi#11",
+        "Bello Olaseni": "amanda#12",
+        "Fatile Taye": "praise#13",
+        "Mepaiyeda Boluwatife": "moses#14",
+        "Oladotun Esther": "monijesu#15",
+        "Omotola Iretomiwa": "desmond#16",
+        "Owolabi Praise": "igbo#17",
+        "Usman Jeffrey": "idan#18"
     };
 
     document.getElementById('details-form').addEventListener('submit', function(event) {
